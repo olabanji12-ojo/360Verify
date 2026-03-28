@@ -92,7 +92,7 @@ const Reports = () => {
             {/* View Switching Logic */}
             {activeTab === "Overview" ? (
                 <div className="bg-white border border-[#e6e6e7] rounded-[24px] overflow-hidden shadow-sm flex-1 mb-20 animate-in fade-in duration-300">
-                    <table className="w-full text-left border-collapse">
+                    <table className="w-full text-left border-collapse font-Outfit">
                         <thead>
                             <tr className="bg-[#f9fafb] border-b border-[#e6e6e7]">
                                 <th className="py-4 px-6 w-10">
@@ -104,7 +104,7 @@ const Reports = () => {
                                     </div>
                                 </th>
                                 <th className="py-4 px-4 text-xs font-bold text-[#888888] uppercase tracking-wider">Date Completed</th>
-                                <th className="py-4 px-4 text-xs font-bold text-[#888888] uppercase tracking-wider">Ref/Batch ID</th>
+                                <th className="py-4 px-4 text-xs font-bold text-[#888888] uppercase tracking-wider">Batch ID</th>
                                 <th className="py-4 px-4 text-xs font-bold text-[#888888] uppercase tracking-wider">Candidate Name</th>
                                 <th className="py-4 px-4 text-xs font-bold text-[#888888] uppercase tracking-wider">Verification Type</th>
                                 <th className="py-4 px-4 text-xs font-bold text-[#888888] uppercase tracking-wider">Status</th>
@@ -112,11 +112,26 @@ const Reports = () => {
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-[#e6e6e7]">
-                            {reportsData.map((item) => (
+                            {[
+                                { id: 1, date: "25-08-2025", batchId: "SV-2025-001", candidate: "Fela Anikulapo", type: "Address, Guarantors", status: "In Progress" },
+                                { id: 2, date: "25-08-2025", batchId: "BV-2025-045", candidate: "50 Candidates", type: "Address, Guarantors", status: "In Progress" },
+                                { id: 3, date: "25-08-2025", batchId: "SV-2025-001", candidate: "Amos Jeremiah", type: "Address, Guarantors", status: "In Progress" },
+                                { id: 4, date: "25-08-2025", batchId: "BV-2025-045", candidate: "50 Candidates", type: "Address, Guarantors", status: "Completed" },
+                                { id: 5, date: "25-08-2025", batchId: "SV-2025-001", candidate: "Promise Thompson", type: "Address, Guarantors", status: "Completed" },
+                                { id: 6, date: "25-08-2025", batchId: "BV-2025-045", candidate: "50 Candidates", type: "Guarantor", status: "In Progress" },
+                                { id: 7, date: "25-08-2025", batchId: "SV-2025-001", candidate: "Obi Okonkwuo", type: "Address, Guarantors", status: "Completed" },
+                                { id: 8, date: "25-08-2025", batchId: "BV-2025-045", candidate: "50 Candidates", type: "Address, Guarantors", status: "Completed" },
+                            ].map((item) => (
                                 <tr 
                                     key={item.id} 
                                     className={`hover:bg-gray-50 transition-colors group cursor-pointer ${selectedRows.includes(item.id) ? "bg-[#fffafa]" : ""}`}
-                                    onClick={() => openReportPanel(item)}
+                                    onClick={() => {
+                                        if (item.batchId.startsWith("BV")) {
+                                            navigate(`/dashboard/reports/batch/${item.batchId}`);
+                                        } else {
+                                            navigate(`/dashboard/reports/single/${item.batchId}`);
+                                        }
+                                    }}
                                 >
                                     <td className="py-4 px-6 w-10" onClick={(e) => e.stopPropagation()}>
                                         <div 
@@ -127,19 +142,17 @@ const Reports = () => {
                                         </div>
                                     </td>
                                     <td className="py-4 px-4 text-sm text-[#666666]">{item.date}</td>
-                                    <td 
-                                        className="py-4 px-4 text-sm text-[#888888] font-medium hover:text-[#ff8a63] hover:underline transition-all"
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            navigate(`/dashboard/requests/${item.batchId}`);
-                                        }}
-                                    >
+                                    <td className="py-4 px-4 text-sm text-[#888888] font-medium italic group-hover:text-[#ff8a63] transition-colors">
                                         {item.batchId}
                                     </td>
                                     <td className="py-4 px-4 text-sm font-semibold text-[#333333]">{item.candidate}</td>
                                     <td className="py-4 px-4 text-sm text-[#666666]">{item.type}</td>
                                     <td className="py-4 px-4">
-                                        <span className={`px-3 py-1.5 rounded-full text-[11px] font-bold ${item.status === 'Verified' ? 'bg-[#ecfdf5] text-[#10b981]' : 'border border-[#e6e6e7] text-[#888888]'}`}>
+                                        <span className={`px-4 py-1.5 rounded-lg text-[11px] font-bold ${
+                                            item.status === 'Completed' 
+                                                ? 'bg-[#ecfdf5] text-[#10b981]' 
+                                                : 'bg-[#f5f3ff] text-[#a855f7]'
+                                        }`}>
                                             {item.status}
                                         </span>
                                     </td>

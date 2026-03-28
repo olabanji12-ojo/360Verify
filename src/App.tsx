@@ -17,6 +17,11 @@ import Request from "./components/dashboard/subcomponents/Request";
 import RequestBatchView from "./components/dashboard/subcomponents/request_batch_view";
 import Reports from "./components/dashboard/subcomponents/Reports";
 import Transactions from "./components/dashboard/subcomponents/Transactions";
+import Settings from "./components/dashboard/subcomponents/Settings";
+import BatchReportView from "./components/dashboard/subcomponents/BatchReportView";
+import SingleReportView from "./components/dashboard/subcomponents/SingleReportView";
+import SingleVerificationForm from "./components/dashboard/subcomponents/SingleVerificationForm";
+import BatchVerificationForm from "./components/dashboard/subcomponents/BatchVerificationForm";
 
 const App = () => {
   return (
@@ -48,13 +53,19 @@ const App = () => {
                 <Route path="requests" element={<Request />} />
                 <Route path="requests/:id" element={<RequestBatchView />} />
                 <Route path="reports" element={<Reports />} />
+                <Route path="reports/batch/:id" element={<BatchReportView />} />
+                <Route path="reports/single/:id" element={<SingleReportView />} />
                 <Route path="transactions" element={<Transactions />} />
-                <Route path="settings" element={<Request />} /> {/* Placeholder */}
+                <Route path="settings" element={<Settings />} />
+                <Route path="single-verification" element={<SingleVerificationForm />} />
+                <Route path="batch-verification" element={<BatchVerificationForm />} />
                 <Route path="verify-address" element={<VerifyAddress />} />
                 <Route path="identity" element={<VerifyGuarantor />} /> {/* Placeholder */}
                 <Route path="guarantor" element={<VerifyGuarantor />} />
                 <Route path="choose-address" element={<ChooseAddress />} />
                 <Route path="multiple-candidate" element={<MultipleCandidate />} />
+                <Route path="transactions" element={<Transactions />} />
+                <Route path="settings" element={<Settings />} />
             </Route>
 
             {/* Global Fallback -> Redirect all bad URLs straight to Login */}
