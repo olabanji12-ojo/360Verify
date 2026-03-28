@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { User, Users, X, Upload, Download } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -43,18 +43,19 @@ const NewVerification = () => {
             </div>
 
             {/* Verification Cards Grid */}
-            <div className="grid grid-cols-2 gap-10 w-full max-w-[1240px] mt-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 w-full max-w-[1240px] mt-4">
                 {/* Single Verification Card */}
                 <div 
                     onClick={handleSingleVerification}
-                    className="bg-[#ff895d] rounded-[48px] p-16 flex flex-col items-center justify-center text-center gap-8 cursor-pointer hover:shadow-2xl hover:shadow-[#ff895d]/30 hover:-translate-y-2 transition-all group min-h-[500px] border-4 border-transparent hover:border-white/20"
+                    className="bg-[#ff895d] rounded-[32px] lg:rounded-[48px] p-10 lg:p-16 flex flex-col items-center justify-center text-center gap-6 lg:gap-8 cursor-pointer hover:shadow-2xl transition-all group min-h-[400px] lg:min-h-[500px]"
                 >
-                    <div className="bg-white/20 p-8 rounded-[32px] group-hover:scale-110 transition-transform duration-500">
-                        <User size={80} className="text-white" strokeWidth={1.2} />
+                    <div className="bg-white/20 p-6 lg:p-8 rounded-[24px] lg:rounded-[32px]">
+                        <User size={60} className="text-white lg:hidden" strokeWidth={1.2} />
+                        <User size={80} className="text-white hidden lg:block" strokeWidth={1.2} />
                     </div>
-                    <div className="flex flex-col gap-5">
-                        <h2 className="text-3xl font-extrabold text-white">Single Verification</h2>
-                        <p className="text-white/90 text-[15px] font-medium max-w-[360px] leading-relaxed">
+                    <div className="flex flex-col gap-4 lg:gap-5">
+                        <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight">Single Verification</h2>
+                        <p className="text-white/90 text-[14px] lg:text-[15px] font-medium max-w-[360px] leading-relaxed">
                             Verify one individual at a time by selecting one or more checks (e.g., address, guarantor) and tracking their results.
                         </p>
                     </div>
@@ -63,14 +64,15 @@ const NewVerification = () => {
                 {/* Batch Verification Card */}
                 <div 
                     onClick={openBatchModal}
-                    className="bg-[#ff895d] rounded-[48px] p-16 flex flex-col items-center justify-center text-center gap-8 cursor-pointer hover:shadow-2xl hover:shadow-[#ff895d]/30 hover:-translate-y-2 transition-all group min-h-[500px] border-4 border-transparent hover:border-white/20"
+                    className="bg-[#ff895d] rounded-[32px] lg:rounded-[48px] p-10 lg:p-16 flex flex-col items-center justify-center text-center gap-6 lg:gap-8 cursor-pointer hover:shadow-2xl transition-all group min-h-[400px] lg:min-h-[500px]"
                 >
-                    <div className="bg-white/20 p-8 rounded-[32px] group-hover:scale-110 transition-transform duration-500">
-                        <Users size={80} className="text-white" strokeWidth={1.2} />
+                    <div className="bg-white/20 p-6 lg:p-8 rounded-[24px] lg:rounded-[32px]">
+                        <Users size={60} className="text-white lg:hidden" strokeWidth={1.2} />
+                        <Users size={80} className="text-white hidden lg:block" strokeWidth={1.2} />
                     </div>
-                    <div className="flex flex-col gap-5">
-                        <h2 className="text-3xl font-extrabold text-white">Batch Verification</h2>
-                        <p className="text-white/90 text-[15px] font-medium max-w-[360px] leading-relaxed">
+                    <div className="flex flex-col gap-4 lg:gap-5">
+                        <h2 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight">Batch Verification</h2>
+                        <p className="text-white/90 text-[14px] lg:text-[15px] font-medium max-w-[360px] leading-relaxed">
                             Verify multiple individuals at once by uploading their details, assigning checks, and tracking all results in a single view.
                         </p>
                     </div>

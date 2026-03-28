@@ -1,4 +1,3 @@
-import React from "react";
 import { Calendar, ChevronDown, Activity, CheckCircle2, AlertCircle, Clock } from "lucide-react";
 
 const Overview = () => {
@@ -26,14 +25,14 @@ const Overview = () => {
                 </div>
 
                 {/* Stats Grid */}
-                <div className="grid grid-cols-5 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-y-8 gap-x-4">
                     {stats.map((stat, idx) => (
-                        <div key={idx} className={`flex flex-col gap-3 ${idx !== stats.length - 1 ? "border-r border-[#f2f2f3] pr-6" : ""}`}>
+                        <div key={idx} className={`flex flex-col gap-3 ${idx !== stats.length - 1 ? "lg:border-r lg:border-[#f2f2f3] lg:pr-6" : ""}`}>
                             <div className="flex items-center gap-2.5">
                                 {stat.icon}
                                 <span className="text-[#bebebe] text-[10px] font-bold uppercase tracking-[1.5px]">{stat.label}</span>
                             </div>
-                            <span className={`text-[32px] font-extrabold ${stat.color || "text-[#333333]"} leading-none tracking-tight`}>{stat.value}</span>
+                            <span className={`text-[28px] lg:text-[32px] font-extrabold ${stat.color || "text-[#333333]"} leading-none tracking-tight`}>{stat.value}</span>
                         </div>
                     ))}
                 </div>

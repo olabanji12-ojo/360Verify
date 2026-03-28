@@ -99,7 +99,7 @@ const Request = () => {
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-[#e6e6e7]">
-                        {requestsData.map((item, index) => (
+                        {requestsData.map((item) => (
                             <tr 
                                 key={item.id} 
                                 className={`hover:bg-gray-50 transition-colors group cursor-pointer ${selectedRows.includes(item.id) ? "bg-[#fffafa]" : ""}`}

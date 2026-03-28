@@ -1,5 +1,4 @@
-import React from "react";
-import { X, Download, ExternalLink } from "lucide-react";
+import { X, Download } from "lucide-react";
 
 interface Activity {
     time: string;
@@ -23,7 +22,7 @@ interface RequestDetailsProps {
     } | null;
 }
 
-const RequestDetails: React.FC<RequestDetailsProps> = ({ isOpen, onClose, data }) => {
+const RequestDetails = ({ isOpen, onClose, data }: RequestDetailsProps) => {
     if (!data) return null;
 
     // Status color mapping (same as Request.tsx for consistency)

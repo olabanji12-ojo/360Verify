@@ -1,4 +1,3 @@
-import React from "react";
 import { Download, FileText, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -33,12 +32,13 @@ const RecentReport = () => {
         <section className="bg-white border border-[#e6e6e7] rounded-[32px] overflow-hidden shadow-sm font-Outfit animate-in fade-in duration-700">
             
             {/* Table Header Area */}
-            <div className="px-8 py-6 flex items-center justify-between border-b border-[#f2f2f3]">
+            <div className="px-6 lg:px-8 py-5 lg:py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-[#f2f2f3]">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#f9faff] rounded-xl flex items-center justify-center text-[#ff8a63]">
-                        <FileText size={20} />
+                    <div className="w-9 h-10 lg:w-10 lg:h-10 bg-[#f9faff] rounded-xl flex items-center justify-center text-[#ff8a63]">
+                        <FileText size={18} className="lg:hidden" />
+                        <FileText size={20} className="hidden lg:block" />
                     </div>
-                    <h2 className="text-[#333333] font-extrabold text-xl tracking-tight">Recent Reports</h2>
+                    <h2 className="text-[#333333] font-extrabold text-lg lg:text-xl tracking-tight">Recent Reports</h2>
                 </div>
                 <button 
                     onClick={() => navigate("/dashboard/reports")}
@@ -50,8 +50,8 @@ const RecentReport = () => {
             </div>
 
             {/* Table Content Area */}
-            <div className="w-full overflow-x-auto">
-                <table className="w-full text-left border-collapse">
+            <div className="w-full overflow-x-auto scrollbar-hide">
+                <table className="min-w-[800px] lg:min-w-0 w-full text-left border-collapse">
                     <thead className="bg-[#fcfcfc] border-b border-[#f2f2f3]">
                         <tr>
                             <th className="px-8 py-5 text-[#bebebe] font-bold text-[10px] uppercase tracking-[1.5px] whitespace-nowrap">Date Submitted</th>
