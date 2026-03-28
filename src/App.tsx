@@ -15,6 +15,8 @@ import ChooseAddress from "./components/shared/ChooseAddress";
 import MultipleCandidate from "./components/shared/MultipleCandidate";
 import Request from "./components/dashboard/subcomponents/Request";
 import RequestBatchView from "./components/dashboard/subcomponents/request_batch_view";
+import Reports from "./components/dashboard/subcomponents/Reports";
+import Transactions from "./components/dashboard/subcomponents/Transactions";
 
 const App = () => {
   return (
@@ -45,8 +47,8 @@ const App = () => {
                 <Route path="preview-request" element={<PreviewRequest />} />
                 <Route path="requests" element={<Request />} />
                 <Route path="requests/:id" element={<RequestBatchView />} />
-                <Route path="reports" element={<Request />} /> {/* Placeholder */}
-                <Route path="transactions" element={<Request />} /> {/* Placeholder */}
+                <Route path="reports" element={<Reports />} />
+                <Route path="transactions" element={<Transactions />} />
                 <Route path="settings" element={<Request />} /> {/* Placeholder */}
                 <Route path="verify-address" element={<VerifyAddress />} />
                 <Route path="identity" element={<VerifyGuarantor />} /> {/* Placeholder */}
