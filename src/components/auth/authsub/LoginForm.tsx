@@ -1,6 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+    const navigate = useNavigate();
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        navigate("/dashboard");
+    };
 
     return (
 
@@ -17,7 +23,7 @@ const LoginForm = () => {
             </div>
 
             {/* Form Division */}
-            <form className="flex flex-col gap-5 w-full" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-5 w-full" onSubmit={handleSubmit}>
 
                 {/* Email Address */}
                 <div className="flex flex-col gap-1.5">

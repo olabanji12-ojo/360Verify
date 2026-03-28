@@ -1,6 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 const Register_Form = () => {
+    const navigate = useNavigate();
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        navigate("/dashboard");
+    };
+
     return (
-        <section className="flex flex-col gap-8 w-full max-w-[480px]">
+        <section className="flex flex-col gap-8 w-full max-w-[480px] font-Outfit">
 
             {/* Header Division */}
             <div className="flex flex-col gap-2">
@@ -13,7 +22,7 @@ const Register_Form = () => {
             </div>
 
             {/* Form Division */}
-            <form className="flex flex-col gap-5 w-full">
+            <form className="flex flex-col gap-5 w-full" onSubmit={handleSubmit}>
 
                 {/* First Name and Last Name */}
                 <div className="grid grid-cols-2 gap-4">
